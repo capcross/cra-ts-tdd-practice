@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App, { Heading } from './App';
@@ -16,6 +16,12 @@ it('renders the heading', () => {
 
 it('renders the heading', () => {
 	const wrapper = shallow(<Heading/>);
+	expect(wrapper.find('h1').text())
+			.toBe('Hello React');
+});
+
+it('renders the app and the heading', () => {
+	const wrapper = mount(<App/>);
 	expect(wrapper.find('h1').text())
 			.toBe('Hello React');
 });
